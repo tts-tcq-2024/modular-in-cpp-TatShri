@@ -1,0 +1,40 @@
+#colorcoder.h
+#ifndef HEADER_H
+#define HEADER_H
+
+#include <string>
+
+namespace TelCoColorCoder {
+    enum MajorColor {WHITE, RED, BLACK, YELLOW, VIOLET};
+    enum MinorColor {BLUE, ORANGE, GREEN, BROWN, SLATE};
+
+    extern const char* MajorColorNames[];
+    extern const char* MinorColorNames[];
+    extern int numberOfMajorColors;
+    extern int numberOfMinorColors;
+
+    class ColorPair {
+        private:
+            MajorColor majorColor;
+            MinorColor minorColor;
+        public:
+            ColorPair(MajorColor major, MinorColor minor);
+            MajorColor getMajor();
+            MinorColor getMinor();
+            std::string ToString();
+    };
+
+    ColorPair GetColorFromPairNumber(int pairNumber);
+    int GetPairNumberFromColor(MajorColor major, MinorColor minor);
+}
+
+void testNumberToPair(int pairNumber,
+    TelCoColorCoder::MajorColor expectedMajor,
+    TelCoColorCoder::MinorColor expectedMinor);
+
+void testPairToNumber(
+    TelCoColorCoder::MajorColor major,
+    TelCoColorCoder::MinorColor minor,
+    int expectedPairNumber);
+
+#endif // HEADER_H
