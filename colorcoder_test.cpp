@@ -1,13 +1,15 @@
+// colorcoder_test.cpp
 #include "colorcoder_test.h"
 #include <iostream>
-#include <assert.h>
+#include <cassert>
 
 void testNumberToPair(int pairNumber,
     TelCoColorCoder::MajorColor expectedMajor,
-    TelCoColorCoder::MinorColor expectedMinor)
+    TelCoColorCoder::MinorColor expectedMinor) 
 {
     TelCoColorCoder::ColorPair colorPair =
         TelCoColorCoder::GetColorFromPairNumber(pairNumber);
+    std::cout << "Testing pair number " << pairNumber << ": ";
     std::cout << "Got pair " << colorPair.ToString() << std::endl;
     assert(colorPair.getMajor() == expectedMajor);
     assert(colorPair.getMinor() == expectedMinor);
@@ -16,9 +18,11 @@ void testNumberToPair(int pairNumber,
 void testPairToNumber(
     TelCoColorCoder::MajorColor major,
     TelCoColorCoder::MinorColor minor,
-    int expectedPairNumber)
+    int expectedPairNumber) 
 {
     int pairNumber = TelCoColorCoder::GetPairNumberFromColor(major, minor);
+    std::cout << "Testing color pair (" << TelCoColorCoder::MajorColorNames[major] << ", " 
+              << TelCoColorCoder::MinorColorNames[minor] << "): ";
     std::cout << "Got pair number " << pairNumber << std::endl;
     assert(pairNumber == expectedPairNumber);
 }
