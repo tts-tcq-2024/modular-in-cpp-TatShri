@@ -1,6 +1,6 @@
 #include "colorcoder.h"
 #include <iostream>
-#include <assert.h>
+#include <cassert>
 
 namespace TelCoColorCoder {
     const char* MajorColorNames[] = {
@@ -15,8 +15,8 @@ namespace TelCoColorCoder {
 
     int numberOfMinorColors = sizeof(MinorColorNames) / sizeof(MinorColorNames[0]);
 
-    ColorPair::ColorPair(MajorColor major, MinorColor minor):
-        majorColor(major), minorColor(minor)
+    ColorPair::ColorPair(MajorColor major, MinorColor minor)
+        : majorColor(major), minorColor(minor)
     {}
 
     MajorColor ColorPair::getMajor() {
