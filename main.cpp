@@ -1,9 +1,12 @@
+// main.cpp
 #include <iostream>
-#include <assert.h>
+#include <cassert>
+#include "colorcoder.h"
 #include "colorcoder_test.h"
 
-
+// Main function with test cases
 int main() {
+    
     // Original test cases
     testNumberToPair(4, TelCoColorCoder::WHITE, TelCoColorCoder::BROWN);
     testNumberToPair(5, TelCoColorCoder::WHITE, TelCoColorCoder::SLATE);
@@ -26,10 +29,11 @@ int main() {
     testNumberToPair(middlePairNumber, TelCoColorCoder::BLACK, TelCoColorCoder::GREEN); // Adjust as needed
     testPairToNumber(TelCoColorCoder::BLACK, TelCoColorCoder::GREEN, middlePairNumber);
 
-    //If reference manual needs to be printed
+    // Optionally print the reference manual
     /*
     std::string manual = TelCoColorCoder::GetReferenceManual();
     std::cout << manual;
     */
+
     return 0;
 }
